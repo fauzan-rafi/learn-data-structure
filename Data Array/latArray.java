@@ -30,15 +30,13 @@ class latArray {
             }
       }
 
-      // untuk menghapus elemen array
+      // function untuk menghapus elemen array
       public void delArray(int[] array, int x) {
-            int temp= array[0];
             for (int i = 0; i < array.length; i++) {
                   if (array[i] == x) {
                         for (int j = i; j < array.length - 1; j++) {
                               array[j] = array[j + 1];
                         }
-                        // array[array.length - 1] =temp;
                         break;
                   }
 
