@@ -133,7 +133,7 @@ class latArray {
                                     System.out.println("Mohon masukan keputusan yang benar");
                               }
                               //perulangan jika user tidak ingin langsung
-                        } while (chosse == 4 || chosse == 2);
+                        } while (true);
 
                   }
             //catch Exception
