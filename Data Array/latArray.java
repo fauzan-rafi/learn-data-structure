@@ -96,7 +96,6 @@ class latArray {
                         }
 
                         //menu setelah data pada array terisi
-                        int chosse = 0;
                         do {
 
                               // menu menampilkan,menghapus,mencari elemen array
@@ -112,21 +111,21 @@ class latArray {
                               // kondisi jika user ingin menampilkan data
                               if (kData == 1) {
                                     latarray.printArray(larik);
-                                    chosse = latarray.keluar();
+                                    latarray.keluar();
                               } //kondisi jika user ingin mencari data
                               else if (kData == 2) {
                                     System.out.println("Silahkan masukan data yang mau dicari : ");
                                     int data = scan.nextInt();
                                     latarray.findArray(larik, data);
                                     latarray.printArray(larik);
-                                    chosse = latarray.keluar();
+                                    latarray.keluar();
                               } //kondisi jika user ingin menhapus data
                               else if (kData == 3) {
                                     System.out.println("Silahkan masukan data yang mau dihapus : ");
                                     int data = scan.nextInt();
                                     latarray.delArray(larik, data);
                                     latarray.printArray(larik);
-                                    chosse = latarray.keluar();
+                                    latarray.keluar();
                               } //kondisi jika user ingin keluar 
                               else if (kData == 4) {
                                     System.exit(1);
