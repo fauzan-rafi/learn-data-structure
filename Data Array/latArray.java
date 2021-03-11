@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 class latArray {
+      
       Scanner sc = new Scanner(System.in);
 
       // function untuk menampilkan data
