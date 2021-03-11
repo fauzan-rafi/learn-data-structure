@@ -7,24 +7,24 @@ public class LatihanArray {
         array = new int[max];
         index = 0;
     }
-
-    // mencari data
-    public boolean findArray(int element) {
-        boolean result = true; 
-        int i;
-        for (i = 0; i < array.length; i++) {
-            if (array[i] == element) {
-                break;
+    
+        // mencari data
+        public boolean findArray(int element) {
+            boolean result = true; 
+            int i;
+            for (i = 0; i < array.length; i++) {
+                if (array[i] == element) {
+                    break;
+                }
             }
+            if (i == array.length) {
+                    result =  false;
+            }else{
+                result = true;
+            }
+            return result;
         }
-        if (i == array.length) {
-                result =  false;
-        }else{
-            result = true;
-        }
-        return result;
-    }
-
+    
     // memasukan data ke array
     public void inputArrar(int element) {
         array[index] = element;
@@ -43,6 +43,10 @@ public class LatihanArray {
 
         if (i == array.length) {
             result = false;
+        }else if(i == array.length-1){
+            array[i] = array[i-1];
+            index--;
+            result = true;
         }else{
             for (int j = i; j < array.length-1; j++) {
                 array[j] = array[j+1];
