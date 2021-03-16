@@ -56,7 +56,7 @@ public class Stack {
       public void printArr() {
             if(!isEmpty()){
                   System.out.print("[ ");
-                  for (int i = data.length-1; i >= 0; i--) {
+                  for (int i = 0; i >= data.length; i++) {
                         System.out.print(data[i] + " ");
                   }
                   System.out.println("]");
