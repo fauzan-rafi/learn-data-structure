@@ -36,4 +36,30 @@ public class Stack {
             }
             return result;
       }
+
+      public boolean isEmpty() {
+            boolean result = false;
+            if(top < 0){
+                  result = true;
+            }
+            return result;
+      }
+
+      public boolean isFull() {
+            boolean result = false;
+            if(top >= max-1){
+                  result = true;
+            }
+            return result;
+      }
+
+      public void printArr() {
+            if(!isEmpty()){
+                  System.out.print("[ ");
+                  for (int i = data.length-1; i >= 0; i--) {
+                        System.out.print(data[i] + " ");
+                  }
+                  System.out.println("]");
+            }
+      }
 }
