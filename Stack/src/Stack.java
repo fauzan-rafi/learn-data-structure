@@ -1,16 +1,15 @@
-package Stack.Stack.src;
 public class Stack {
-      private String[] data;
+      private int[] data;
       private int max;
       private int top;
 
       public Stack(int size) {
             max = size;
-            data = new String[max];
+            data = new int[max];
             top = -1;
       }
 
-      public boolean push(String value){
+      public boolean push(int value){
             boolean result = false;
             top++;
             if (top < max) {
@@ -20,8 +19,8 @@ public class Stack {
             return result;
       }
 
-      public String pop() {
-            String result = null;
+      public int pop() {
+            int result = 0;
             if(top >= 0){
                   result = data[top];
                   top--;
@@ -29,8 +28,8 @@ public class Stack {
             return result;
       }
 
-      public String peek(){
-            String result = null;
+      public int peek(){
+            int result = 0;
             if(top >= 0){
                   result = data[top];
             }
@@ -55,11 +54,13 @@ public class Stack {
 
       public void printArr() {
             if(!isEmpty()){
-                  System.out.print("[ ");
-                  for (int i = 0; i >= data.length; i++) {
-                        System.out.print(data[i] + " ");
+                  for (int i = top; i >= 0; i--) {
+                        if( i == top){
+                              System.out.println(data[i] + " <<< data pertama ");
+                        }else{
+                              System.out.println(data[i] + " ");
+                        }
                   }
-                  System.out.println("]");
             }
       }
 }
