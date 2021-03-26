@@ -1,3 +1,6 @@
+/*
+Create by Fzn from any source
+*/
 import java.util.*;
 
 public class App {
@@ -6,7 +9,7 @@ public class App {
         Stack stack = new Stack(3);
         Scanner scanner = new Scanner(System.in);
         System.out.println();
-        stack.stackInfo();
+        stack.stackIngfo();
         System.out.println();
         do {
             System.out.println("-----------------------------------------");
@@ -69,12 +72,12 @@ public class App {
                 //menu 5
                 else if( pilih == 5){
                     stack.clean();
-                    stack.stackInfo();
+                    stack.stackIngfo();
                 } //akhir dari menu 5
                 /* ----------------------------------------------------------------------- */
                 else if (pilih == 6) {
                     System.out.println("-------------------------");
-                    stack.stackInfo();
+                    stack.stackIngfo();
                     System.out.println("-------------------------");
                 }
                 /* ----------------------------------------------------------------------- */

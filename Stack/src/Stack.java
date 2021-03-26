@@ -56,7 +56,7 @@ public class Stack {
             top = -1;
       }
 
-      public void stackInfo() {
+      public void stackIngfo() {
             System.out.println("Stack info");
             System.out.println("Capacity : " + max);
             System.out.println("Filled : " + (top + 1));
