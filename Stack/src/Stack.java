@@ -52,11 +52,20 @@ public class Stack {
             return result;
       }
 
+      public void clean(){
+            top = -1;
+      }
+
+      public void stackInfo() {
+            System.out.println("Stack info");
+            System.out.println("Capacity : " + max);
+            System.out.println("Filled : " + (top + 1));
+      }
       public void printArr() {
             if(!isEmpty()){
                   for (int i = top; i >= 0; i--) {
                         if( i == top){
-                              System.out.println(data[i] + " <<< data pertama ");
+                              System.out.println(data[i] + " <<< data paling atas ");
                         }else{
                               System.out.println(data[i] + " ");
                         }

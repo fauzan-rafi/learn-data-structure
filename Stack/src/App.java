@@ -5,7 +5,8 @@ public class App {
     public static void main(String[] args) throws Exception {
         Stack stack = new Stack(3);
         Scanner scanner = new Scanner(System.in);
-
+        System.out.println();
+        stack.stackInfo();
         System.out.println();
         do {
             System.out.println("-----------------------------------------");
@@ -15,7 +16,8 @@ public class App {
             System.out.println("3. Lihat data paling atas");
             System.out.println("4. Lihat semua isi data stack");
             System.out.println("5. Buat data stack baru <clear data>");
-            System.out.println("6. Keluar");
+            System.out.println("6. Stack ingfo");
+            System.out.println("7. Keluar");
             System.out.println("------------------------------------------");
             
             try {
@@ -66,11 +68,18 @@ public class App {
                 /* ----------------------------------------------------------------------- */
                 //menu 5
                 else if( pilih == 5){
-
+                    stack.clean();
+                    stack.stackInfo();
                 } //akhir dari menu 5
                 /* ----------------------------------------------------------------------- */
-                // menu 6
-                else if( pilih == 6){
+                else if (pilih == 6) {
+                    System.out.println("-------------------------");
+                    stack.stackInfo();
+                    System.out.println("-------------------------");
+                }
+                /* ----------------------------------------------------------------------- */
+                // menu 7
+                else if( pilih == 7){
                     boolean result = false;
                     do{
                         System.out.println("Apakah anda yakin untuk keluar ? Y/N");
@@ -84,9 +93,11 @@ public class App {
                             result = true;
                         }
                     }while(result);
-                }// akhir menu 6
+                }// akhir menu 7
                 /* ----------------------------------------------------------------------- */
-
+                else{
+                    System.out.println("Something wrong i can feel it");
+                }
             } catch (InputMismatchException e) {
                 System.out.println("Masukan angka");// handle exception
             }
