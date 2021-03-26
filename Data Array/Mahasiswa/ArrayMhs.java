@@ -34,9 +34,11 @@ public class ArrayMhs {
       public boolean delMhs(String nama){
             int i;
             for(i=0; i < index - 1; i++){
-                  if( arrayMahasiswas[i].getNamaMhs().equals(nama) )
+                  String name = arrayMahasiswas[i].getNamaMhs();
+                  if( name.equals(nama) )
                   break;
             }
+            
             if(i == index){ // data tidak ditemukan
                   return false;
             }else if(i == index-1){
@@ -54,14 +56,15 @@ public class ArrayMhs {
 
       //method print array
       public void showArray() {
+            String garis = "---------------------------";
             System.out.println("");
-            System.out.println("---------------------------");
+            System.out.println(garis);
             System.out.println("Nama ------ Alamat -----IPK");
-            System.out.println("---------------------------");
-            for (int i = 0; i < arrayMahasiswas.length; i++) {
+            System.out.println(garis);
+            for (int i = 0; i < index; i++) {
                   arrayMahasiswas[i].showMhs();
             }
-            System.out.println("---------------------------");
+            System.out.println(garis);
             System.out.println();
       }
 

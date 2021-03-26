@@ -2,8 +2,6 @@
     Simple implementation of data structure type stack
     =========== String reverse ======================
 */
-package Stack.Stack.src;
-
 import java.io.*;
 import java.util.*;
 
