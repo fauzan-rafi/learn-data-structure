@@ -1,12 +1,12 @@
 /**
  * queue
  */
-public class queue {
+public class Myqueue {
       private int[] data;
       private int max;
       private int size;
 
-      public queue(int maxi) {
+      public Myqueue(int maxi) {
             max = maxi;
             data = new int[max];
             size = 0;
@@ -63,7 +63,7 @@ public class queue {
             return result;
       }
 //////////////////////////////////////////////////////////
-      public void stackIngfo() {
+      public void queueIngfo() {
             System.out.println("Queue info");
             System.out.println("Capacity : " + max);
             System.out.println("Filled : " + (getSize()));
