@@ -1,0 +1,7 @@
+/**
+ * queue
+ */
+public class queue {
+
+      
+}

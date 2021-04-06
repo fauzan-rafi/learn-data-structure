@@ -14,28 +14,28 @@ public class App {
             System.out.println("Lanjut? true/false");
             boolean lanjut = scanner.nextBoolean();
             if (lanjut == true) {
-                  try {
-                  // menentukan jumlah array
-                  System.out.print("Silahkan masukan jumah data = ");
-                  int size = scanner.nextInt();
-                  arrayMhs = new ArrayMhs(size);
+                  // try {
+                  // // menentukan jumlah array
+                  // System.out.print("Silahkan masukan jumah data = ");
+                  // int size = scanner.nextInt();
+                  // arrayMhs = new ArrayMhs(size);
 
-                  // membuat object
-                  for (int i = 0; i < size; i++) {
-                        String nama, alamat;
-                        double ipk;
-                        System.out.print("Silahkan masukan Nama : ");
-                        nama = scanner.next();
-                        System.out.print("Silahkan masukan Alamat : ");
-                        alamat = scanner.next();
-                        System.out.print("Silahkan masukan IPK : ");
-                        ipk = scanner.nextDouble();
-                        arrayMhs.insertMhs(nama, alamat, ipk);
-                        System.out.println();
-                  }
+                  // // membuat object
+                  // for (int i = 0; i < size; i++) {
+                  //       String nama, alamat;
+                  //       double ipk;
+                  //       System.out.print("Silahkan masukan Nama : ");
+                  //       nama = scanner.next();
+                  //       System.out.print("Silahkan masukan Alamat : ");
+                  //       alamat = scanner.next();
+                  //       System.out.print("Silahkan masukan IPK : ");
+                  //       ipk = scanner.nextDouble();
+                  //       arrayMhs.insertMhs(nama, alamat, ipk);
+                  //       System.out.println();
+                  // }
                   
-                  // menampilkan isi array
-                  arrayMhs.showArray();
+                  // // menampilkan isi array
+                  // arrayMhs.showArray();
                   // mencari data
                   boolean stay;
                   do{
@@ -43,6 +43,7 @@ public class App {
                         System.out.println("2.Hapus data ");
                         System.out.println("3.Tampilkan data");
                         System.out.println("4.Keluar");
+                        System.out.println("5.Masukan data");
                         int choise = scanner.nextInt();
                               if( choise == 1){
                                     System.out.print("data apa yg dicari ? ");
@@ -76,16 +77,40 @@ public class App {
                         else if(choise == 4){
                               System.exit(1);
                         }
+                        else if(choise == 5){
+                              try {
+                              // menentukan jumlah array
+                              System.out.print("Silahkan masukan jumah data = ");
+                              int size = scanner.nextInt();
+                              arrayMhs = new ArrayMhs(size);
 
+                              // membuat object
+                              for (int i = 0; i < size; i++) {
+                                    String nama, alamat;
+                                    double ipk;
+                                    System.out.print("Silahkan masukan Nama : ");
+                                    nama = scanner.next();
+                                    System.out.print("Silahkan masukan Alamat : ");
+                                    alamat = scanner.next();
+                                    System.out.print("Silahkan masukan IPK : ");
+                                    ipk = scanner.nextDouble();
+                                    arrayMhs.insertMhs(nama, alamat, ipk);
+                                    System.out.println();
+                              }
+                              
+                              // menampilkan isi array
+                              arrayMhs.showArray();
+                              }
+                              catch (Exception e) {
+                              System.out.println("Silahkan masukan inputan yang benar");
+                              } 
+                        }
                         System.out.println("Stay : true / false?");
                         stay = scanner.nextBoolean();
-                     }while(stay);
-
-                  } catch (Exception e) {
-                        System.out.println("Silahkan masukan inputan yang benar");
-                  } 
+                     }while(stay); 
           }else{
                 System.exit(1);
           }  
       }
+      
 }

@@ -9,7 +9,7 @@ public class Stack {
             top = -1;
       }
 
-      public boolean push(int value){
+      public boolean push(int value) {
             boolean result = false;
             top++;
             if (top < max) {
@@ -21,16 +21,16 @@ public class Stack {
 
       public int pop() {
             int result = 0;
-            if(top >= 0){
+            if (top >= 0) {
                   result = data[top];
                   top--;
             }
             return result;
       }
 
-      public int peek(){
+      public int peek() {
             int result = 0;
-            if(top >= 0){
+            if (top >= 0) {
                   result = data[top];
             }
             return result;
@@ -38,7 +38,7 @@ public class Stack {
 
       public boolean isEmpty() {
             boolean result = false;
-            if(top < 0){
+            if (top < 0) {
                   result = true;
             }
             return result;
@@ -46,13 +46,13 @@ public class Stack {
 
       public boolean isFull() {
             boolean result = false;
-            if(top >= max-1){
+            if (top >= max - 1) {
                   result = true;
             }
             return result;
       }
 
-      public void clean(){
+      public void clean() {
             top = -1;
       }
 
@@ -61,12 +61,13 @@ public class Stack {
             System.out.println("Capacity : " + max);
             System.out.println("Filled : " + (top + 1));
       }
+
       public void printArr() {
-            if(!isEmpty()){
+            if (!isEmpty()) {
                   for (int i = top; i >= 0; i--) {
-                        if( i == top){
+                        if (i == top) {
                               System.out.println(data[i] + " <<< data paling atas ");
-                        }else{
+                        } else {
                               System.out.println(data[i] + " ");
                         }
                   }
