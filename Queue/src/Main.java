@@ -1,11 +1,11 @@
 
 import java.util.*;
 
-public class App {
+public class Main {
 	
 
 	public static void main(String[] args) {
-		Myqueue queue = new Myqueue(5);
+	  Myqueue queue = new Myqueue(5);
         Scanner scan = new Scanner(System.in);
         System.out.println();
         queue.queueIngfo();
