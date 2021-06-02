@@ -21,10 +21,10 @@ public class FirstLastList {
             if( isEmpty() ) // if empty list,
             {
                   first = newLink; // first --> newLink
-            }else
-            {
-                  last.next = newLink; // old last --> newLink
-                  last = newLink; // newLink <-- last
+            }
+            else{
+                  first.next = newLink; // old last --> newLink
+                  newLink = last; // newLink <-- last
             }
       }
 

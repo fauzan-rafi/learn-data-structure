@@ -37,7 +37,7 @@ public class LinkQueueApp {
                                           loop = 0;
                                     }
                               
-                              queue.insert(alpha);
+                                    queue.insert(alpha);
                               }
                         }// akhir dari menu 1
                         /* ----------------------------------------------------------------------- */
