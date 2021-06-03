@@ -23,8 +23,9 @@ public class FirstLastList {
                   first = newLink; // first --> newLink
             }
             else{
-                  first.next = newLink; // old last --> newLink
-                  newLink = last; // newLink <-- last
+                  last.next = newLink; // old last --> newLink
+                  newLink = last;// newLink <-- last
+                  // last.next = newLink;
             }
       }
 
