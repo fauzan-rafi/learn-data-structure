@@ -1,3 +1,5 @@
+package queue;
+
 import java.util.*;
 
 public class LinkQueueApp {
@@ -25,11 +27,11 @@ public class LinkQueueApp {
                         // menu 1
                         if (pilih == 1) {
                               int loop = 0;
-                              double alpha = 0;
+                              int alpha = 0;
                               while(loop == 0) {
                                     System.out.print("Masukkan Data (angka): ");
                                     try {
-                                          alpha = scan.nextDouble();
+                                          alpha = scan.nextInt();
                                           loop = 1;
                                     }
                                     catch(InputMismatchException e) {

@@ -1,6 +1,7 @@
 {
       "java.project.sourcePaths": [
             "LinkedList/src/stack",
-            "LinkedList/src/queue"
+            "LinkedList/src/queue",
+            "LinkedList/src/Doubly"
       ]
 }

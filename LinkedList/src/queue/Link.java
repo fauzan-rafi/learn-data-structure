@@ -1,3 +1,5 @@
+package queue;
+
 public class Link {
       public double dData;
       public Link next;

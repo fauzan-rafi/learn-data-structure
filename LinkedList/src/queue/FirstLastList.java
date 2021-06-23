@@ -1,3 +1,5 @@
+package queue;
+
 public class FirstLastList {
       private Link first;
       private Link last;
@@ -23,7 +25,7 @@ public class FirstLastList {
                   first = newLink; // first --> newLink
             }
             else{
-                  last.next = newLink; // old last --> newLink
+                  first.next = newLink; // old last --> newLink
                   newLink = last;// newLink <-- last
                   // last.next = newLink;
             }
@@ -35,8 +37,8 @@ public class FirstLastList {
             if(first.next == null) // if only one item
             {
                   last = null; // null <-- last
-                  first = first.next; // first --> old next
             }
+            first = first.next; // first --> old next
             return temp;
       }
 

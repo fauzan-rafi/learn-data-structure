@@ -1,3 +1,5 @@
+package queue;
+
 public class LinkQueue {
       private FirstLastList theList;
 
