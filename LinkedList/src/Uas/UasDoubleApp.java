@@ -14,7 +14,8 @@ public class UasDoubleApp {
               System.out.println("2. Menghapus data");
               System.out.println("3. Mengupdate data ");
               System.out.println("4. Menampilkan data ");
-              System.out.println("5. Keluar");
+              System.out.println("5. Menemukan data");
+              System.out.println("6. Keluar");
               System.out.println("------------------------------------------");
               
               try {
@@ -23,16 +24,13 @@ public class UasDoubleApp {
                   System.out.println("--------------------------------------");
   
                   if( pilih == 1){
-                        System.out.print("Nama : ");
-                        String a = scanner.nextLine();
-                        String nama = scanner.nextLine();
-                      System.out.print("NIM : ");
-                      int nim = scanner.nextInt();
-                      System.out.print("Jenis Kelamin(L/W) : ");
-                      String b = scanner.nextLine();
-                      String gender = scanner.nextLine();
-  
-                      link.insertData(nama, nim, gender);
+                        System.out.println("Nama :");
+                        String nama = scanner.next();
+                        System.out.println("NIM : ");
+                        int nim = scanner.nextInt();
+                        System.out.println("Jenis Kelamin(L/W) : ");
+                        String gender = scanner.next();
+                        link.insertData(nama, nim, gender);
                   }
   
                   else if( pilih == 2){
@@ -41,14 +39,45 @@ public class UasDoubleApp {
                   } 
   
                   else if( pilih == 3){
-  
+                        int loop = 0;
+                              int nim = 0;
+                              while(loop == 0) {
+                                    System.out.print("Masukkan NIM (angka): ");
+                                    try {
+                                          nim = scanner.nextInt();
+                                          loop = 1;
+                                    }
+                                    catch(InputMismatchException e) {
+                                          System.out.println("Masukan harus berupa Angka!");
+                                          loop = 0;
+                                    }
+                              }
+                        link.updateData(nim);
                   }
   
                   else if( pilih == 4){
                         link.tampilMaju();
                   }
-  
+
                   else if( pilih == 5){
+                        int loop = 0;
+                              int nim = 0;
+                              while(loop == 0) {
+                                    System.out.print("Masukkan NIM (angka): ");
+                                    try {
+                                          nim = scanner.nextInt();
+                                          loop = 1;
+                                    }
+                                    catch(InputMismatchException e) {
+                                          System.out.println("Masukan harus berupa Angka!");
+                                          loop = 0;
+                                    }
+                              }
+                        link.findData(nim);
+                        
+                  }
+  
+                  else if( pilih == 6){
                       boolean result = false;
                       do{
                           System.out.println("Apakah anda yakin untuk keluar ? Y/N");

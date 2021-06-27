@@ -1,6 +1,9 @@
 package Uas;
 
+import java.util.*;
+
 class UasLink {
+	Scanner scanner = new Scanner(System.in);
       private Node first; // pointer first digunakan untuk menunjukkan awal list
 	private Node last;  // pointer last digunakan untuk menunjukkan akhir list
 // -------------------------------------------------------------
@@ -93,16 +96,73 @@ class UasLink {
             Node indek = first;
             while(indek.Nim != nim) {
 			if(indek == null){
-                        System.out.println("Data tidak ditemukan");
+                        System.out.print("Data tidak ditemukan");
                         break;
                   }
                   indek = indek.next;
-            }
-         if(indek.Nim == nim){
-               System.out.println("Data ditemukan");
-               indek.tampilNode();
-         }   
+		}
+		
+		if(indek.Nim == nim){
+			System.out.println("Data ditemukan");
+			indek.updateShow();
+		}   
 	}
 //-------------------------------------------------------------
- 
+	public void updateData(int nim) {
+		Node indek = first;
+            while(indek.Nim != nim) {
+			if(indek == null){
+                        System.out.print("Data tidak ditemukan");
+                        break;
+                  }
+                  indek = indek.next;
+		}
+		
+		if(indek.Nim == nim){
+			System.out.println("Data ditemukan");
+			indek.updateShow();
+			System.out.println("Data apa yang ingin diganti ???");
+			System.out.println("1. Edit Nama");
+			System.out.println("2. Edit Nim");
+			System.out.println("3. Edit Gender");
+			int select = scanner.nextInt();
+                        switch (select) {
+                              case 1:
+                                    System.out.print("Masukkan Nama (String): ");
+                                    try {
+                                         String newNama = scanner.next();
+                                          indek.setNama(newNama);
+                                    }
+                                    catch(InputMismatchException e) {
+                                          System.out.println("Masukan harus berupa String!");
+                                    }
+                                    break;
+                              case 2:
+						System.out.print("Masukkan Nim (Angka): ");
+						try {
+							int newNIm = scanner.nextInt();
+							indek.setNim(newNIm);
+						}
+						catch(InputMismatchException e) {
+							System.out.println("Masukan harus berupa Angka!");
+						}
+                                    break;
+                              case 3:
+						System.out.print("Masukkan Gender (String): ");
+						try {
+							String newGender = scanner.next();
+							indek.setGender(newGender);
+						}
+						catch(InputMismatchException e) {
+							System.out.println("Masukan harus berupa String!");
+						}
+                                    break;
+                              default:
+                                    break;
+				}
+			indek.updateShow();
+		} 
+		
+	}
+
 }

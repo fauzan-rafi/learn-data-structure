@@ -16,4 +16,22 @@ class Node {
 	public void tampilNode() {
 		System.out.print(" {" + Nama + " , " + Nim + " , " + Gender + "} ");
 	}
+
+	public void updateShow() {
+		System.out.println("1. Nama = " + Nama);
+		System.out.println("2. Nim = " + Nim);
+		System.out.println("3. Gender = " + Gender);
+	}
+
+	public void setNama(String nama) {
+		this.Nama = nama;
+	}
+
+	public void setGender(String gender) {
+		this.Gender = gender;
+	}
+
+	public void setNim(int nim) {
+		this.Nim = nim;
+	}
 }
