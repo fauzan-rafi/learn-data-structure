@@ -14,6 +14,6 @@ class Node {
 	}
 // -------------------------------------------------------------
 	public void tampilNode() {
-		System.out.print(" {" + Nama + ", " + Nim + " , " + Gender + "} ");
+		System.out.print(" {" + Nama + " , " + Nim + " , " + Gender + "} ");
 	}
 }

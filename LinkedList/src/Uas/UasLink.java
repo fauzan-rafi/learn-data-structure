@@ -15,6 +15,7 @@ class UasLink {
 
 // -------------------------------------------------------------
 	// memasukkan data dengan ketentuan tidak ada nim yang sama
+	// done .
 	public boolean insertData(String dat1, int dat2, String dat3) {
             Node indek = first;
             Node newNode = new Node(dat1,dat2,dat3);
@@ -59,16 +60,18 @@ class UasLink {
 			indek.next.previous = indek.previous;
 		}
 		return indek;
- }
+ 	}
  
 // ------------------------------------------------------------
 
 // -------------------------------------------------------------
 	public void tampilMaju() {
-		System.out.print("List (first-->last): ");
+		System.out.println("{Nama | Nim | Gender}");
+		System.out.println();
 		Node indek = first;
 		while(indek != null) {
-			indek.tampilNode();
+		indek.tampilNode();
+		System.out.println();
 			indek = indek.next;
 		}
 		System.out.println("");
