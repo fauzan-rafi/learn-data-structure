@@ -9,7 +9,7 @@ public class UasDoubleApp {
             int loop = 0;
             int nim = 0;
             while(loop == 0) {
-                  System.out.print("NIM dihapus : ");
+                  System.out.print("Masukan NIM : ");
                   try {
                         nim = scanner.nextInt();
                         loop = 1;
@@ -54,6 +54,8 @@ public class UasDoubleApp {
                         }else{
                               System.out.println("Nim sudah ada !!!");
                         }
+                        System.out.println();
+                        link.sortData();
                         link.tampilMaju();
                         
                   }
@@ -71,6 +73,7 @@ public class UasDoubleApp {
                   }
   
                   else if( pilih == 4){
+                        link.sortData();
                         link.tampilMaju();
                   }
 
