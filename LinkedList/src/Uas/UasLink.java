@@ -28,7 +28,7 @@ class UasLink {
                   last = newNode;
                   result = true;
 		}else {
-                  while(indek.Nim != dat2) {
+                  while(indek.data.getNim() != dat2) {
                         if(indek == last){
                               last.next = newNode;
                               newNode.previous = last;
@@ -41,12 +41,29 @@ class UasLink {
             }
             return result;
 	}
+// -----------------------------------------------------------------------------
+	public boolean editData(String dat1, int dat2, String dat3) {
+		Node indek = first;
+            boolean result = false;
+		while(indek.data.getNim() != dat2) {
+			if(indek == last){
+				indek.setNama(dat1);
+				indek.setNim(dat2);
+				indek.setGender(dat3);
+				result = true;
+				break;
+			}
+			indek = indek.next;
+		}
+            
+            return result;
+	}
 // -------------------------------------------------------------
 	// menghapus data tertentu (tidak diawal maupun diakhir list)
 	public boolean delData(int dat) {
 		boolean result = true;
 		Node indek = first;
-		while(indek.Nim != dat) {
+		while(indek.data.getNim() != dat) {
 			indek = indek.next;
 			if(indek == null)
 				result = false;
@@ -68,7 +85,6 @@ class UasLink {
  
 // ------------------------------------------------------------
 
-// -------------------------------------------------------------
 	public void tampilMaju() {
 		System.out.println("{Nama | Nim | Gender}");
 		System.out.println();
@@ -80,35 +96,45 @@ class UasLink {
 		}
 		System.out.println("");
 	}
-// -------------------------------------------------------------
-	public void tampilMundur() {
-		System.out.print("List (last-->first): ");
-		Node indek = last;
-		while(indek != null) {
-			indek.tampilNode();
-			indek = indek.previous;
-		}
-		System.out.println("");
-      }
-	
-//-----------------------------------------------------------
 
-	public void showSort() {
-		System.out.println("{ Nama | Nim | Gender }");
+// -------------------------------------------------------------
+
+
+	public void sortData() {
+	  Node current = null, index = null;  
+        Data temp;  
+        //Check whether list is empty  
+        if(first == null) {  
+            return;  
+        }  else {  
+            //Current will point to first  
+            for(current = first; current.next != null; current = current.next) {  
+                //Index will point to node next to current  
+                for(index = current.next; index != null; index = index.next) {  
+                    //If current's data is greater than index's data, swap the data of current and index  
+                    if(current.data.getNim() > index.data.getNim()) {  
+                        temp = current.data;  
+                        current.data = index.data;  
+                        index.data = temp;  
+                    }  
+                }  
+            }  
+        }   
+
 	}
 
 // ----------------------------------------------------------
 // Find data untuk menemukan data tertentu dalam linked 
       public void findData(int nim){
             Node indek = first;
-            while(indek.Nim != nim) {
+            while(indek.data.getNim() != nim) {
 			if(indek == null){
                         System.out.print("Data tidak ditemukan");
                         break;
                   }
                   indek = indek.next;
 		}
-		if(indek.Nim == nim){
+		if(indek.data.getNim() == nim){
 			System.out.println("Data ditemukan");
 			indek.updateShow();
 		}   
@@ -116,14 +142,14 @@ class UasLink {
 //---------------------------------------------------------------------------------------
 	public void updateData(int nim) {
 		Node indek = first;
-            while(indek.Nim != nim) {
+            while(indek.data.getNim() != nim) {
 			if(indek == null){
                         System.out.print("Data tidak ditemukan");
                         break;
                   }
                   indek = indek.next;
 		}
-		if(indek.Nim == nim){
+		if(indek.data.getNim() == nim){
 			System.out.println("Data ditemukan");
 			indek.updateShow();
 			System.out.println("Data apa yang ingin diganti ???");
@@ -136,7 +162,8 @@ class UasLink {
                                     System.out.print("Masukkan Nama (String): ");
                                     try {
                                          String newNama = scanner.next();
-                                          indek.setNama(newNama);
+							this.editData(newNama, indek.data.getNim(), indek.data.getGender());
+							
                                     }
                                     catch(InputMismatchException e) {
                                           System.out.println("Masukan harus berupa String!");
@@ -145,15 +172,9 @@ class UasLink {
                               case 2:
 						System.out.print("Masukkan Nim (Angka): ");
 						try {
-							int newNIm = scanner.nextInt();
-							while(indek.Nim != newNIm) {
-								if(indek == last){
-									indek.setNim(newNIm);
-									break;
-								}
-								indek = indek.next;
-							}
-							if( indek.Nim == newNIm ){
+							int newNim = scanner.nextInt();
+							boolean trial = this.editData(indek.data.getNama(), newNim, indek.data.getGender());
+							if( !trial ){
 								System.out.println("Nim Sudah ada !!!");
 							}
 						}
@@ -165,7 +186,7 @@ class UasLink {
 						System.out.print("Masukkan Gender (String): ");
 						try {
 							String newGender = scanner.next();
-							indek.setGender(newGender);
+							this.editData(indek.data.getNama(), indek.data.getNim(), newGender);
 						}
 						catch(InputMismatchException e) {
 							System.out.println("Masukan harus berupa String!");
@@ -174,6 +195,7 @@ class UasLink {
                               default:
                                     break;
 				}
+			System.out.println();
 			indek.updateShow();
 		} 
 		
