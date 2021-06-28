@@ -3,6 +3,25 @@ package Uas;
 import java.util.*;
 
 public class UasDoubleApp {
+
+      public static  int inputNim() {
+            Scanner scanner = new Scanner(System.in);
+            int loop = 0;
+            int nim = 0;
+            while(loop == 0) {
+                  System.out.print("NIM dihapus : ");
+                  try {
+                        nim = scanner.nextInt();
+                        loop = 1;
+                  }
+                  catch(InputMismatchException e) {
+                        System.out.println("Masukan harus berupa Angka!");
+                        loop = 0;
+                  }
+            }
+            return nim;
+      }
+      
       public static void main(String[] args) {
           Scanner scanner = new Scanner(System.in);
           UasLink link = new UasLink();
@@ -30,29 +49,25 @@ public class UasDoubleApp {
                         int nim = scanner.nextInt();
                         System.out.println("Jenis Kelamin(L/W) : ");
                         String gender = scanner.next();
-                        link.insertData(nama, nim, gender);
+                        if(link.insertData(nama, nim, gender) ){
+                              System.out.println("Data berhasil ditambahkan");
+                        }else{
+                              System.out.println("Nim sudah ada !!!");
+                        }
+                        link.tampilMaju();
+                        
                   }
-  
                   else if( pilih == 2){
-                      System.out.print("NIM dihapus : ");
-                      link.delData(scanner.nextInt());
+                      if(link.delData(inputNim())){
+                              System.out.println("Data berhasil dihapus");
+                        }else{
+                              System.out.println("Data gagal dihapus");
+                        }
+                        link.tampilMaju();
                   } 
   
                   else if( pilih == 3){
-                        int loop = 0;
-                              int nim = 0;
-                              while(loop == 0) {
-                                    System.out.print("Masukkan NIM (angka): ");
-                                    try {
-                                          nim = scanner.nextInt();
-                                          loop = 1;
-                                    }
-                                    catch(InputMismatchException e) {
-                                          System.out.println("Masukan harus berupa Angka!");
-                                          loop = 0;
-                                    }
-                              }
-                        link.updateData(nim);
+                        link.updateData(inputNim());
                   }
   
                   else if( pilih == 4){
@@ -60,21 +75,7 @@ public class UasDoubleApp {
                   }
 
                   else if( pilih == 5){
-                        int loop = 0;
-                              int nim = 0;
-                              while(loop == 0) {
-                                    System.out.print("Masukkan NIM (angka): ");
-                                    try {
-                                          nim = scanner.nextInt();
-                                          loop = 1;
-                                    }
-                                    catch(InputMismatchException e) {
-                                          System.out.println("Masukan harus berupa Angka!");
-                                          loop = 0;
-                                    }
-                              }
-                        link.findData(nim);
-                        
+                        link.findData(inputNim());
                   }
   
                   else if( pilih == 6){

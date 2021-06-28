@@ -37,18 +37,19 @@ class UasLink {
                               break;
                         }
                         indek = indek.next;
-                  }
+			}
             }
             return result;
 	}
 // -------------------------------------------------------------
 	// menghapus data tertentu (tidak diawal maupun diakhir list)
-	public Node delData(int dat) {
+	public boolean delData(int dat) {
+		boolean result = true;
 		Node indek = first;
 		while(indek.Nim != dat) {
 			indek = indek.next;
 			if(indek == null)
-				return null; // data tidak ditemukan
+				result = false;
 		}
 
 		if(indek == first){
@@ -62,7 +63,7 @@ class UasLink {
 		}else{
 			indek.next.previous = indek.previous;
 		}
-		return indek;
+		return result;
  	}
  
 // ------------------------------------------------------------
@@ -91,6 +92,12 @@ class UasLink {
       }
 	
 //-----------------------------------------------------------
+
+	public void showSort() {
+		System.out.println("{ Nama | Nim | Gender }");
+	}
+
+// ----------------------------------------------------------
 // Find data untuk menemukan data tertentu dalam linked 
       public void findData(int nim){
             Node indek = first;
@@ -101,13 +108,12 @@ class UasLink {
                   }
                   indek = indek.next;
 		}
-		
 		if(indek.Nim == nim){
 			System.out.println("Data ditemukan");
 			indek.updateShow();
 		}   
 	}
-//-------------------------------------------------------------
+//---------------------------------------------------------------------------------------
 	public void updateData(int nim) {
 		Node indek = first;
             while(indek.Nim != nim) {
@@ -117,7 +123,6 @@ class UasLink {
                   }
                   indek = indek.next;
 		}
-		
 		if(indek.Nim == nim){
 			System.out.println("Data ditemukan");
 			indek.updateShow();
@@ -141,7 +146,16 @@ class UasLink {
 						System.out.print("Masukkan Nim (Angka): ");
 						try {
 							int newNIm = scanner.nextInt();
-							indek.setNim(newNIm);
+							while(indek.Nim != newNIm) {
+								if(indek == last){
+									indek.setNim(newNIm);
+									break;
+								}
+								indek = indek.next;
+							}
+							if( indek.Nim == newNIm ){
+								System.out.println("Nim Sudah ada !!!");
+							}
 						}
 						catch(InputMismatchException e) {
 							System.out.println("Masukan harus berupa Angka!");
@@ -164,5 +178,6 @@ class UasLink {
 		} 
 		
 	}
+// ---------------------------------------------------------------------------------------
 
 }
