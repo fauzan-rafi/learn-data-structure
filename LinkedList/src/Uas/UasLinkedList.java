@@ -1,37 +1,42 @@
 package Uas;
 
 class Node {
-      public String Nama;
-	public int Nim;
-	public String Gender;
+      // public String Nama;
+	// public int Nim;
+	// public String Gender;
+	public Data data;
 	public Node next;		// pointer (link) untuk terhubung dengan Node berikutnya
 	public Node previous;	// pointer (link) untuk terhubung dengan Node sebelumnya
 // -------------------------------------------------------------
+	// public Node(String Nama, int Nim, String Gender) {
+      //       this.Nama = Nama;
+      //       this.Nim = Nim;
+      //       this.Gender = Gender;
+	// }
 	public Node(String Nama, int Nim, String Gender) {
-            this.Nama = Nama;
-            this.Nim = Nim;
-            this.Gender = Gender;
+		Data temp = new Data(Nim, Nama, Gender);
+		this.data = temp;
 	}
 // -------------------------------------------------------------
 	public void tampilNode() {
-		System.out.print(" {" + Nama + " , " + Nim + " , " + Gender + "} ");
+		System.out.print(" {" + data.getNama() + " , " + data.getNim() + " , " + data.getGender() + "} ");
 	}
 
 	public void updateShow() {
-		System.out.println("1. Nama = " + Nama);
-		System.out.println("2. Nim = " + Nim);
-		System.out.println("3. Gender = " + Gender);
+		System.out.println("1. Nama = " + data.getNama());
+		System.out.println("2. Nim = " + data.getNim());
+		System.out.println("3. Gender = " + data.getGender());
 	}
 
 	public void setNama(String nama) {
-		this.Nama = nama;
+		this.data.setNama(nama);
 	}
 
 	public void setGender(String gender) {
-		this.Gender = gender;
+		this.data.setGender(gender);
 	}
 
 	public void setNim(int nim) {
-		this.Nim = nim;
+		this.data.setNim(nim);
 	}
 }
