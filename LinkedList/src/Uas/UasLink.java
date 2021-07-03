@@ -19,7 +19,6 @@ class UasLink {
 // -------------------------------------------------------------
 	// memasukkan data dengan ketentuan tidak ada nim yang sama
 	// done .
-	// /*
 	public boolean insertData(String dat1, int dat2, String dat3) {
             Node indek = first;
             Node newNode = new Node(dat1,dat2,dat3);
@@ -42,127 +41,7 @@ class UasLink {
             }
             return result;
 	}
-	// */
-
-	/*
-	public boolean insertData(String dat1, int dat2, String dat3) {
-		Node index = this.first;
-		Node node = new Node(dat1,dat2,dat3);
-            boolean result = false;
-            if (dat3.equals("L")) {
-			if (isEmpty()) {
-				insertFirst(node);
-				result = true;
-			}else{
-				while (index.next != null && !index.next.data.getGender().equals("W") && index.data.getNim() >= index.next.data.getNim()) {
-					index = index.next;
-				}
-				if (index == last) {
-					last = node;
-				}else{
-					node.next = index.next;
-					index.next.previous = node;
-				}
-
-				node.previous = index;
-				index.next = node;
-			}
-		}else if(dat3.equals("W")){
-			if(isEmpty()){
-				insertLast(node);
-			}else{
-				while (index.next != null) {
-					while (index.next != null && index.next.data.getGender().equals("L")) {
-						index = index.next;
-					}
-
-					while (index.next != null && index.data.getNim() >= index.next.data.getNim()) {
-						index = index.next;
-					}
-
-					break;
-				}
-
-				if (index == last) {
-					last = node;
-					result = true;
-				}else{
-					node.next = index.next;
-					index.next.previous = node;
-				}
-
-				node.previous = index;
-				index.next = node;
-			}
-		}
-            return result;
-	}
-	*/
-	public void insertFirst(Node node) {
-		Node newNode = node;
-		if (isEmpty()){
-			last = newNode;
-		}else{
-			first.previous = newNode;
-		}	
-		newNode.next = first;
-		first = newNode;
-	}
-
-	public void insertLast(Node node) {
-		Node newNode = node;
-		if (isEmpty())
-			first = newNode;
-		else {
-			last.next = newNode;
-			newNode.previous = last;
-		}
-		last = newNode;
-	}
-	/*
-	public boolean insertAfter(Node node, Node node2) {
-		Node index = first;
-		while (index.data.getNim() != node.data.getNim()) {
-		    index = index.next;
-		    if (index == null) {
-			  return false;
-		    }
-		}
-		Node temp = node2;
-		if (index == last) {
-		    last = temp;
-		} else {
-		    temp.next = index.next;
-		    index.next.previous = temp;
-		}
-		temp.previous = index;
-		index.next = temp;
-		return true;
-	}
-	*/
-	/*
-	public boolean insertBefore(Node node, Node node2) {
-		Node index = first;
-		while (index.data.getNim() != node.data.getNim()) {
-		    index = index.next;
-		    if (index == null) {
-			  return false;
-		    }
-		}
-		Node temp = node2;
-		if (index == first) {
-		    first = temp;
-		} else {
-		    temp.previous = index.previous;
-		    index.previous.next = temp;
-		}
-		temp.next = index;
-		index.previous = temp;
-		return true;
-	}
-	*/
-// -----------------------------------------------------------------------------
-
+// --------------------------------------------------------------------------
 	// menghapus data tertentu (tidak diawal maupun diakhir list)
 	public boolean delData(int dat) {
 		boolean result = true;
