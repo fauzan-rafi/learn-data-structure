@@ -2,9 +2,9 @@
 
 Daftar anggota kelompok : 
 
-Muhammad Fauzan Rafi - 20520241004
-Robertus Adi Setayawan - 20520241007
-Inas Suraya - 20520241023
+Muhammad Fauzan Rafi - 20520241004 <br>
+Robertus Adi Setayawan - 20520241007 <br>
+Inas Suraya - 20520241023 <br>
 
 # Features V1.0
 Masukan data
