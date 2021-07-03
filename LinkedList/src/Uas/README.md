@@ -9,11 +9,14 @@ Daftar anggota kelompok :
 </html>
 
 # Features V1.0
-Masukan data
-Menghapus data
-Mengupdate data
-Menampilkan data
-Menemukan data
+
+<html>
+Masukan data <br>
+Menghapus data <br>
+Mengupdate data <br>
+Menampilkan data <br>
+Menemukan data <br>
+<html>
 
 # New Feature V1.1
 Clear All Data
