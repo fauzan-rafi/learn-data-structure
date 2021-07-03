@@ -19,7 +19,7 @@ class Node {
 	}
 // -------------------------------------------------------------
 	public void tampilNode() {
-		System.out.print(" {" + data.getNama() + " , " + data.getNim() + " , " + data.getGender() + "} ");
+		System.out.println(" [ " + data.getNama() + "  |  " + data.getNim() + "  |  " + data.getGender() + " ] ");
 	}
 
 	public void updateShow() {

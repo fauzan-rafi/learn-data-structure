@@ -19,6 +19,7 @@ class UasLink {
 // -------------------------------------------------------------
 	// memasukkan data dengan ketentuan tidak ada nim yang sama
 	// done .
+	// /*
 	public boolean insertData(String dat1, int dat2, String dat3) {
             Node indek = first;
             Node newNode = new Node(dat1,dat2,dat3);
@@ -41,24 +42,127 @@ class UasLink {
             }
             return result;
 	}
-// -----------------------------------------------------------------------------
-	public boolean editData(String dat1, int dat2, String dat3) {
-		Node indek = first;
+	// */
+
+	/*
+	public boolean insertData(String dat1, int dat2, String dat3) {
+		Node index = this.first;
+		Node node = new Node(dat1,dat2,dat3);
             boolean result = false;
-		while(indek.data.getNim() != dat2) {
-			if(indek == last){
-				indek.setNama(dat1);
-				indek.setNim(dat2);
-				indek.setGender(dat3);
+            if (dat3.equals("L")) {
+			if (isEmpty()) {
+				insertFirst(node);
 				result = true;
-				break;
+			}else{
+				while (index.next != null && !index.next.data.getGender().equals("W") && index.data.getNim() >= index.next.data.getNim()) {
+					index = index.next;
+				}
+				if (index == last) {
+					last = node;
+				}else{
+					node.next = index.next;
+					index.next.previous = node;
+				}
+
+				node.previous = index;
+				index.next = node;
 			}
-			indek = indek.next;
+		}else if(dat3.equals("W")){
+			if(isEmpty()){
+				insertLast(node);
+			}else{
+				while (index.next != null) {
+					while (index.next != null && index.next.data.getGender().equals("L")) {
+						index = index.next;
+					}
+
+					while (index.next != null && index.data.getNim() >= index.next.data.getNim()) {
+						index = index.next;
+					}
+
+					break;
+				}
+
+				if (index == last) {
+					last = node;
+					result = true;
+				}else{
+					node.next = index.next;
+					index.next.previous = node;
+				}
+
+				node.previous = index;
+				index.next = node;
+			}
 		}
-            
             return result;
 	}
-// -------------------------------------------------------------
+	*/
+	public void insertFirst(Node node) {
+		Node newNode = node;
+		if (isEmpty()){
+			last = newNode;
+		}else{
+			first.previous = newNode;
+		}	
+		newNode.next = first;
+		first = newNode;
+	}
+
+	public void insertLast(Node node) {
+		Node newNode = node;
+		if (isEmpty())
+			first = newNode;
+		else {
+			last.next = newNode;
+			newNode.previous = last;
+		}
+		last = newNode;
+	}
+	/*
+	public boolean insertAfter(Node node, Node node2) {
+		Node index = first;
+		while (index.data.getNim() != node.data.getNim()) {
+		    index = index.next;
+		    if (index == null) {
+			  return false;
+		    }
+		}
+		Node temp = node2;
+		if (index == last) {
+		    last = temp;
+		} else {
+		    temp.next = index.next;
+		    index.next.previous = temp;
+		}
+		temp.previous = index;
+		index.next = temp;
+		return true;
+	}
+	*/
+	/*
+	public boolean insertBefore(Node node, Node node2) {
+		Node index = first;
+		while (index.data.getNim() != node.data.getNim()) {
+		    index = index.next;
+		    if (index == null) {
+			  return false;
+		    }
+		}
+		Node temp = node2;
+		if (index == first) {
+		    first = temp;
+		} else {
+		    temp.previous = index.previous;
+		    index.previous.next = temp;
+		}
+		temp.next = index;
+		index.previous = temp;
+		return true;
+	}
+	*/
+// -----------------------------------------------------------------------------
+
 	// menghapus data tertentu (tidak diawal maupun diakhir list)
 	public boolean delData(int dat) {
 		boolean result = true;
@@ -86,120 +190,155 @@ class UasLink {
 // ------------------------------------------------------------
 
 	public void tampilMaju() {
-		System.out.println("{Nama | Nim | Gender}");
+		System.out.println("---------------------------------------------");
+		System.out.println("[ Nama         | Nim          | Gender       ]");
+		System.out.println("---------------------------------------------");
 		System.out.println();
-		Node indek = first;
-		while(indek != null) {
-		indek.tampilNode();
-		System.out.println();
-			indek = indek.next;
+		this.sortData();
+            this.sortGroup();
+	}
+
+// -------------------------------------------------------------
+	public void sortData() {
+		Node current = null, index = null;  
+		Data temp;  
+		//Check whether list is empty  
+		if(first == null) {  
+			return;  
+		}else {  
+		//Current will point to first  
+			for(current = first; current.next != null; current = current.next) {  
+				//Index will point to node next to current  
+				for(index = current.next; index != null; index = index.next) {  
+					//If current's data is greater than index's data, swap the data of current and index  
+					if(current.data.getNim() > index.data.getNim()) {  
+						temp = current.data;  
+						current.data = index.data;  
+						index.data = temp;  
+					}  
+				}  
+			}  
+		}   
+	}
+// -------------------------------------------------------------
+
+	public void sortGroup() {
+		Node index = first;
+		while (index != null) {
+			if (index.data.getGender().equals("L")) {
+			index.tampilNode();
+			} 
+			index = index.next;
+		}
+		index = first;
+		while (index != null) {
+			if (index.data.getGender().equals("W")) {
+			index.tampilNode();
+			} 
+			index = index.next;
 		}
 		System.out.println("");
 	}
 
-// -------------------------------------------------------------
-
-
-	public void sortData() {
-	  Node current = null, index = null;  
-        Data temp;  
-        //Check whether list is empty  
-        if(first == null) {  
-            return;  
-        }  else {  
-            //Current will point to first  
-            for(current = first; current.next != null; current = current.next) {  
-                //Index will point to node next to current  
-                for(index = current.next; index != null; index = index.next) {  
-                    //If current's data is greater than index's data, swap the data of current and index  
-                    if(current.data.getNim() > index.data.getNim()) {  
-                        temp = current.data;  
-                        current.data = index.data;  
-                        index.data = temp;  
-                    }  
-                }  
-            }  
-        }   
-
-	}
-
 // ----------------------------------------------------------
 // Find data untuk menemukan data tertentu dalam linked 
-      public void findData(int nim){
-            Node indek = first;
-            while(indek.data.getNim() != nim) {
-			if(indek == null){
+      public Node findData(int nim){
+            Node index = first;
+            while(index.data.getNim() != nim) {
+			if(index == null){
                         System.out.print("Data tidak ditemukan");
                         break;
                   }
-                  indek = indek.next;
+                  index = index.next;
 		}
-		if(indek.data.getNim() == nim){
+		if(index.data.getNim() == nim){
 			System.out.println("Data ditemukan");
-			indek.updateShow();
+			index.updateShow();
 		}   
+	
+		return index;
 	}
 //---------------------------------------------------------------------------------------
 	public void updateData(int nim) {
-		Node indek = first;
-            while(indek.data.getNim() != nim) {
-			if(indek == null){
-                        System.out.print("Data tidak ditemukan");
-                        break;
-                  }
-                  indek = indek.next;
-		}
-		if(indek.data.getNim() == nim){
-			System.out.println("Data ditemukan");
-			indek.updateShow();
-			System.out.println("Data apa yang ingin diganti ???");
-			System.out.println("1. Edit Nama");
-			System.out.println("2. Edit Nim");
-			System.out.println("3. Edit Gender");
+		Node index = this.findData(nim);
+		System.out.println();
+		String oldName = index.data.getNama();
+		int oldNim = index.data.getNim();
+		String oldGender = index.data.getGender();
+		System.out.println("Data apa yang ingin diganti ???");
+		System.out.println("1. Edit Nama");
+		System.out.println("2. Edit Nim");
+		System.out.println("3. Edit Gender");
+		System.out.println();
 			int select = scanner.nextInt();
-                        switch (select) {
-                              case 1:
-                                    System.out.print("Masukkan Nama (String): ");
-                                    try {
-                                         String newNama = scanner.next();
-							this.editData(newNama, indek.data.getNim(), indek.data.getGender());
-							
-                                    }
-                                    catch(InputMismatchException e) {
-                                          System.out.println("Masukan harus berupa String!");
-                                    }
-                                    break;
-                              case 2:
-						System.out.print("Masukkan Nim (Angka): ");
-						try {
-							int newNim = scanner.nextInt();
-							boolean trial = this.editData(indek.data.getNama(), newNim, indek.data.getGender());
-							if( !trial ){
-								System.out.println("Nim Sudah ada !!!");
-							}
+			switch (select) {
+				case 1:
+					System.out.print("Masukkan Nama (String): ");
+					try {
+						String newNama = scanner.next();
+						this.editData(newNama, oldNim, oldGender ,index);
+						
+					}
+					catch(InputMismatchException e) {
+						System.out.println("Masukan harus berupa String!");
+					}
+					break;
+				case 2:
+					System.out.print("Masukkan Nim (Angka): ");
+					try {
+						int newNim = scanner.nextInt();
+						boolean trial = this.editData(oldName, newNim, oldGender,index);
+						if( !trial ){
+							System.out.println("Data dengan nim yang sama sudah ada !!!");
 						}
-						catch(InputMismatchException e) {
-							System.out.println("Masukan harus berupa Angka!");
-						}
-                                    break;
-                              case 3:
-						System.out.print("Masukkan Gender (String): ");
-						try {
-							String newGender = scanner.next();
-							this.editData(indek.data.getNama(), indek.data.getNim(), newGender);
-						}
-						catch(InputMismatchException e) {
-							System.out.println("Masukan harus berupa String!");
-						}
-                                    break;
-                              default:
-                                    break;
-				}
-			System.out.println();
-			indek.updateShow();
-		} 
+					}
+					catch(InputMismatchException e) {
+						System.out.println("Masukan harus berupa Angka!");
+					}
+					break;
+				case 3:
+					System.out.print("Masukkan Gender (L/W): ");
+					try {
+						String newGender = scanner.next();
+						this.editData(oldName, oldNim, newGender, index);
+					}
+					catch(InputMismatchException e) {
+						System.out.println("Masukan harus berupa String!");
+					}
+					break;
+				default:
+					break;
+			}
+		System.out.println();
+		index.updateShow();
+	} 
 		
-	}
+	
 // ---------------------------------------------------------------------------------------
+	public boolean editData(String dat1, int dat2, String dat3,Node node) {
+		boolean result = false;
+		Node newNode = node;
+		if(validateNim(dat2,node)){
+			newNode.setNama(dat1);
+			newNode.setNim(dat2);
+			newNode.setGender(dat3);
+			result = true;
+		}
 
+		return result;
+	}
+// -------------------------------------------------------------
+
+	public boolean validateNim(int nim , Node node) {
+		boolean result = true;
+		Node index = this.first;
+		while (index != null && !index.equals(node)) {
+			if(index.data.getNim() == nim){
+				result = false;
+				break;
+			}
+			index = index.next;
+		}
+		return result;
+	}
 }

@@ -52,10 +52,11 @@ public class UasDoubleApp {
                         if(link.insertData(nama, nim, gender) ){
                               System.out.println("Data berhasil ditambahkan");
                         }else{
-                              System.out.println("Nim sudah ada !!!");
+                              System.out.println("Data gagal ditambahkan, silahkan periksa Nim anda kembali !!! ");
                         }
                         System.out.println();
-                        link.sortData();
+                        // link.sortData();
+                        // link.sortGroup();
                         link.tampilMaju();
                         
                   }
@@ -70,10 +71,11 @@ public class UasDoubleApp {
   
                   else if( pilih == 3){
                         link.updateData(inputNim());
+                        link.tampilMaju();
                   }
   
                   else if( pilih == 4){
-                        link.sortData();
+                        // link.sortData();
                         link.tampilMaju();
                   }
 
