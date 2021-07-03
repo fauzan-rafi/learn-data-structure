@@ -220,4 +220,11 @@ class UasLink {
 		}
 		return result;
 	}
+
+// --------------------------------------------------------------
+
+	public void clearList() {
+		this.first = null;
+		this.last = null;
+	}
 }

@@ -12,3 +12,6 @@ Menghapus data
 Mengupdate data
 Menampilkan data
 Menemukan data
+
+#New Feature V1.1
+Clear All Data

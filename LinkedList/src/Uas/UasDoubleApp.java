@@ -34,7 +34,8 @@ public class UasDoubleApp {
               System.out.println("3. Mengupdate data ");
               System.out.println("4. Menampilkan data ");
               System.out.println("5. Menemukan data");
-              System.out.println("6. Keluar");
+              System.out.println("6. Hapus semua data");
+              System.out.println("7. Keluar");
               System.out.println("------------------------------------------");
               
               try {
@@ -82,8 +83,13 @@ public class UasDoubleApp {
                   else if( pilih == 5){
                         link.findData(inputNim());
                   }
-  
+
                   else if( pilih == 6){
+                        link.clearList();
+                        link.tampilMaju();
+                  }
+  
+                  else if( pilih == 7){
                       boolean result = false;
                       do{
                           System.out.println("Apakah anda yakin untuk keluar ? Y/N");
