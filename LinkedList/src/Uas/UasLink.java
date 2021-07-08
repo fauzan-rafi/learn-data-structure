@@ -43,25 +43,27 @@ class UasLink {
 	}
 // --------------------------------------------------------------------------
 	// menghapus data tertentu (tidak diawal maupun diakhir list)
-	public boolean delData(int dat) {
-		boolean result = true;
-		Node indek = first;
-		while(indek.data.getNim() != dat) {
-			indek = indek.next;
-			if(indek == null)
-				result = false;
+	public boolean delData(int nim) {
+		boolean result = false;
+		Node index = first;
+		while(index != null) {
+			if(index.data.getNim() == nim){
+				result = true;
+				break;
+			}
+			index = index.next;
 		}
 
-		if(indek == first){
-			first = indek.next;
+		if(index == first){
+			first = index.next;
             }else{
-			indek.previous.next = indek.next;
+			index.previous.next = index.next;
             }
 
-		if(indek == last){
-			last = indek.previous;
+		if(index == last){
+			last = index.previous;
 		}else{
-			indek.next.previous = indek.previous;
+			index.next.previous = index.previous;
 		}
 		return result;
  	}
@@ -70,7 +72,7 @@ class UasLink {
 
 	public void tampilMaju() {
 		System.out.println("---------------------------------------------");
-		System.out.println("[ Nama         | Nim          | Gender       ]");
+		System.out.printf("[%-25s|%-10s|%-5s]%n","Nama","Nim","Gender");
 		System.out.println("---------------------------------------------");
 		System.out.println();
 		this.sortData();
@@ -123,18 +125,18 @@ class UasLink {
 // Find data untuk menemukan data tertentu dalam linked 
       public Node findData(int nim){
             Node index = first;
-            while(index.data.getNim() != nim) {
-			if(index == null){
-                        System.out.print("Data tidak ditemukan");
-                        break;
-                  }
+            while(index != null) {
+			if(index.data.getNim() == nim){
+				System.out.println("Data ditemukan");
+				index.updateShow();
+				break;
+			} 
                   index = index.next;
 		}
-		if(index.data.getNim() == nim){
-			System.out.println("Data ditemukan");
-			index.updateShow();
+		if(index == null){
+			System.out.println("Data tidak ditemukan");
 		}   
-	
+
 		return index;
 	}
 //---------------------------------------------------------------------------------------
@@ -144,6 +146,7 @@ class UasLink {
 		String oldName = index.data.getNama();
 		int oldNim = index.data.getNim();
 		String oldGender = index.data.getGender();
+		boolean trial = false;
 		System.out.println("Data apa yang ingin diganti ???");
 		System.out.println("1. Edit Nama");
 		System.out.println("2. Edit Nim");
@@ -155,7 +158,7 @@ class UasLink {
 					System.out.print("Masukkan Nama (String): ");
 					try {
 						String newNama = scanner.next();
-						this.editData(newNama, oldNim, oldGender ,index);
+						trial = this.editData(newNama, oldNim, oldGender ,index);
 						
 					}
 					catch(InputMismatchException e) {
@@ -166,7 +169,7 @@ class UasLink {
 					System.out.print("Masukkan Nim (Angka): ");
 					try {
 						int newNim = scanner.nextInt();
-						boolean trial = this.editData(oldName, newNim, oldGender,index);
+						trial = this.editData(oldName, newNim, oldGender,index);
 						if( !trial ){
 							System.out.println("Data dengan nim yang sama sudah ada !!!");
 						}
@@ -179,7 +182,7 @@ class UasLink {
 					System.out.print("Masukkan Gender (L/W): ");
 					try {
 						String newGender = scanner.next();
-						this.editData(oldName, oldNim, newGender, index);
+						trial = this.editData(oldName, oldNim, newGender, index);
 					}
 					catch(InputMismatchException e) {
 						System.out.println("Masukan harus berupa String!");
@@ -189,7 +192,10 @@ class UasLink {
 					break;
 			}
 		System.out.println();
-		index.updateShow();
+		if(trial)
+			index.updateShow();
+		else
+			System.out.println("Data Tidak ter-update");
 	} 
 		
 	
@@ -197,7 +203,7 @@ class UasLink {
 	public boolean editData(String dat1, int dat2, String dat3,Node node) {
 		boolean result = false;
 		Node newNode = node;
-		if(validateNim(dat2,node)){
+		if(validateNim(dat2,node) == true){
 			newNode.setNama(dat1);
 			newNode.setNim(dat2);
 			newNode.setGender(dat3);
@@ -208,11 +214,11 @@ class UasLink {
 	}
 // -------------------------------------------------------------
 
-	public boolean validateNim(int nim , Node node) {
+	public boolean validateNim(int nim,Node node) {
 		boolean result = true;
 		Node index = this.first;
-		while (index != null && !index.equals(node)) {
-			if(index.data.getNim() == nim){
+		while (index != null ) {
+			if(index.data.getNim() == nim && index != node){
 				result = false;
 				break;
 			}

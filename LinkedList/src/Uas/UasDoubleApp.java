@@ -25,9 +25,11 @@ public class UasDoubleApp {
       public static void main(String[] args) {
           Scanner scanner = new Scanner(System.in);
           UasLink link = new UasLink();
-          System.out.println();
+          System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+          System.out.println(">            Welcome to app v1.1            <");
+          System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
           do {
-              System.out.println("-----------------------------------------");
+              System.out.println(">-------------------------------------------<");
               System.out.println("Pilih Menu :");
               System.out.println("1. Masukan data");
               System.out.println("2. Menghapus data");
@@ -36,19 +38,19 @@ public class UasDoubleApp {
               System.out.println("5. Menemukan data");
               System.out.println("6. Hapus semua data");
               System.out.println("7. Keluar");
-              System.out.println("------------------------------------------");
+              System.out.println(">-------------------------------------------<");
               
               try {
                   System.out.print("Anda Pilih : ");
                   double pilih = scanner.nextDouble();
-                  System.out.println("--------------------------------------");
+                  System.out.println("---------------------------------------------");
   
                   if( pilih == 1){
-                        System.out.println("Nama :");
+                        System.out.print("Nama : ");
                         String nama = scanner.next();
-                        System.out.println("NIM : ");
+                        System.out.print("NIM : ");
                         int nim = scanner.nextInt();
-                        System.out.println("Jenis Kelamin(L/W) : ");
+                        System.out.print("Jenis Kelamin(L/W) : ");
                         String gender = scanner.next();
                         if(link.insertData(nama, nim, gender) ){
                               System.out.println("Data berhasil ditambahkan");
@@ -62,17 +64,20 @@ public class UasDoubleApp {
                         
                   }
                   else if( pilih == 2){
-                      if(link.delData(inputNim())){
-                              System.out.println("Data berhasil dihapus");
-                        }else{
+                        int temp = inputNim();
+                        if(link.findData(temp) == null){
                               System.out.println("Data gagal dihapus");
+                        }else{
+                              link.delData(temp);
                         }
                         link.tampilMaju();
                   } 
   
                   else if( pilih == 3){
-                        link.updateData(inputNim());
-                        link.tampilMaju();
+                        int temp = inputNim();
+                        if(link.findData(temp) != null)
+                              link.updateData(temp);
+                              link.tampilMaju();
                   }
   
                   else if( pilih == 4){
@@ -81,7 +86,9 @@ public class UasDoubleApp {
                   }
 
                   else if( pilih == 5){
-                        link.findData(inputNim());
+                        if(link.findData(inputNim()) == null){
+                              // System.out.println("Data tidak ada");
+                        }
                   }
 
                   else if( pilih == 6){
