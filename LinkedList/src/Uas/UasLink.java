@@ -6,6 +6,8 @@ class UasLink {
 	Scanner scanner = new Scanner(System.in);
       private Node first; // pointer first digunakan untuk menunjukkan awal list
 	private Node last;  // pointer last digunakan untuk menunjukkan akhir list
+	private int l = 0;
+	private int w = 0;
 // -------------------------------------------------------------
 	public UasLink() { // constructor
 		first = null; // pointer first diinisialisasi agar tidak menunjuk ke suatu Node tertentu
@@ -111,14 +113,16 @@ class UasLink {
 		Node index = first;
 		while (index != null) {
 			if (index.data.getGender().equals("L")) {
-			index.tampilNode();
+				index.tampilNode();
+				this.l++;
 			} 
 			index = index.next;
 		}
 		index = first;
 		while (index != null) {
 			if (index.data.getGender().equals("W")) {
-			index.tampilNode();
+				index.tampilNode();
+				this.w++;
 			} 
 			index = index.next;
 		}
@@ -234,5 +238,18 @@ class UasLink {
 	public void clearList() {
 		this.first = null;
 		this.last = null;
+	}
+
+	public void appIngfo(){
+		int total = this.l+this.w;
+		if (this.first == null && this.last == null) {
+			System.out.println("Data kosong");
+		}else{
+			System.out.println("App Ingfo");
+			System.out.println("Total data store : " + total);
+			System.out.println("Total data Laki-laki store : " + this.l);
+			System.out.println("Total data Wanita store : " + this.w);
+			this.tampilMaju();
+		}
 	}
 }

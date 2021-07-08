@@ -37,7 +37,8 @@ public class UasDoubleApp {
               System.out.println("4. Menampilkan data ");
               System.out.println("5. Menemukan data");
               System.out.println("6. Hapus semua data");
-              System.out.println("7. Keluar");
+              System.out.println("7. App Ingfo");
+              System.out.println("8. Keluar");
               System.out.println(">------------------------------------------------<");
               
               try {
@@ -99,8 +100,12 @@ public class UasDoubleApp {
                         link.clearList();
                         link.tampilMaju();
                   }
-  
+
                   else if( pilih == 7){
+                        link.appIngfo();
+                  }
+  
+                  else if( pilih == 8){
                       boolean result = false;
                       do{
                           System.out.println("Apakah anda yakin untuk keluar ? Y/N");

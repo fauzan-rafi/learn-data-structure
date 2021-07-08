@@ -18,5 +18,13 @@ Menampilkan data <br>
 Menemukan data <br>
 <html>
 
-# New Feature V1.1
+# Feature V1.1
 Clear All Data
+
+# Feature V1.2
+
+<html>
+App Ingfo ?? <br>
+FIxing bug <br>
+Change type NIM from Int to Long <br>
+</html>
