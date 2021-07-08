@@ -1,16 +1,16 @@
 package Uas;
 
 public class Data {
-      private int nim;
-      private String nama,gender;
+      private long nim;
+      private String nama, gender;
 
-      public Data(int nim,String nama,String gender){
+      public Data(long nim, String nama, String gender) {
             this.nim = nim;
             this.nama = nama;
             this.gender = gender;
       }
 
-      public void setNim(int nim) {
+      public void setNim(long nim) {
             this.nim = nim;
       }
 
@@ -22,7 +22,7 @@ public class Data {
             this.gender = gender;
       }
 
-      public int getNim() {
+      public long getNim() {
             return nim;
       }
 

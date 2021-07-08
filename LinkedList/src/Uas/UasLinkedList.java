@@ -1,25 +1,27 @@
 package Uas;
 
 class Node {
-      // public String Nama;
+	// public String Nama;
 	// public int Nim;
 	// public String Gender;
 	public Data data;
-	public Node next;		// pointer (link) untuk terhubung dengan Node berikutnya
-	public Node previous;	// pointer (link) untuk terhubung dengan Node sebelumnya
-// -------------------------------------------------------------
+	public Node next; // pointer (link) untuk terhubung dengan Node berikutnya
+	public Node previous; // pointer (link) untuk terhubung dengan Node sebelumnya
+	// -------------------------------------------------------------
 	// public Node(String Nama, int Nim, String Gender) {
-      //       this.Nama = Nama;
-      //       this.Nim = Nim;
-      //       this.Gender = Gender;
+	// this.Nama = Nama;
+	// this.Nim = Nim;
+	// this.Gender = Gender;
 	// }
-	public Node(String Nama, int Nim, String Gender) {
+
+	public Node(String Nama, long Nim, String Gender) {
 		Data temp = new Data(Nim, Nama, Gender);
 		this.data = temp;
 	}
-// -------------------------------------------------------------
+
+	// -------------------------------------------------------------
 	public void tampilNode() {
-		System.out.printf("[%-25s|%-10d|%-6s]\n" ,data.getNama(), data.getNim(),data.getGender());
+		System.out.printf("[%-25s|%-15d|%-6s]%n", data.getNama(), data.getNim(), data.getGender());
 	}
 
 	public void updateShow() {
@@ -36,7 +38,7 @@ class Node {
 		this.data.setGender(gender);
 	}
 
-	public void setNim(int nim) {
+	public void setNim(long nim) {
 		this.data.setNim(nim);
 	}
 }

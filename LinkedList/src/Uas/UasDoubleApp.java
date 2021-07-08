@@ -4,14 +4,14 @@ import java.util.*;
 
 public class UasDoubleApp {
 
-      public static  int inputNim() {
+      public static  long inputNim() {
             Scanner scanner = new Scanner(System.in);
             int loop = 0;
-            int nim = 0;
+            long nim = 0;
             while(loop == 0) {
                   System.out.print("Masukan NIM : ");
                   try {
-                        nim = scanner.nextInt();
+                        nim = scanner.nextLong();
                         loop = 1;
                   }
                   catch(InputMismatchException e) {
@@ -25,11 +25,11 @@ public class UasDoubleApp {
       public static void main(String[] args) {
           Scanner scanner = new Scanner(System.in);
           UasLink link = new UasLink();
-          System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-          System.out.println(">            Welcome to app v1.1            <");
-          System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+          System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+          System.out.println(">               Welcome to app v1.1              <");
+          System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
           do {
-              System.out.println(">-------------------------------------------<");
+              System.out.println(">------------------------------------------------<");
               System.out.println("Pilih Menu :");
               System.out.println("1. Masukan data");
               System.out.println("2. Menghapus data");
@@ -38,18 +38,18 @@ public class UasDoubleApp {
               System.out.println("5. Menemukan data");
               System.out.println("6. Hapus semua data");
               System.out.println("7. Keluar");
-              System.out.println(">-------------------------------------------<");
+              System.out.println(">------------------------------------------------<");
               
               try {
                   System.out.print("Anda Pilih : ");
                   double pilih = scanner.nextDouble();
-                  System.out.println("---------------------------------------------");
+                  System.out.println("--------------------------------------------------");
   
                   if( pilih == 1){
                         System.out.print("Nama : ");
                         String nama = scanner.next();
                         System.out.print("NIM : ");
-                        int nim = scanner.nextInt();
+                        long nim = scanner.nextLong();
                         System.out.print("Jenis Kelamin(L/W) : ");
                         String gender = scanner.next();
                         if(link.insertData(nama, nim, gender) ){
@@ -64,7 +64,7 @@ public class UasDoubleApp {
                         
                   }
                   else if( pilih == 2){
-                        int temp = inputNim();
+                        long temp = inputNim();
                         if(link.findData(temp) == null){
                               System.out.println("Data gagal dihapus");
                         }else{
@@ -74,8 +74,9 @@ public class UasDoubleApp {
                   } 
   
                   else if( pilih == 3){
-                        int temp = inputNim();
+                        long temp = inputNim();
                         if(link.findData(temp) != null)
+                              link.findData(temp).updateShow();
                               link.updateData(temp);
                               link.tampilMaju();
                   }
@@ -86,8 +87,11 @@ public class UasDoubleApp {
                   }
 
                   else if( pilih == 5){
-                        if(link.findData(inputNim()) == null){
-                              // System.out.println("Data tidak ada");
+                        long temp = inputNim();
+                        if(link.findData(temp) != null){
+                              link.findData(temp).updateShow();
+                        }else{
+                              System.out.println("Data tidak ada");
                         }
                   }
 
