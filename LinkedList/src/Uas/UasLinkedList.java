@@ -21,7 +21,7 @@ class Node {
 
 	// -------------------------------------------------------------
 	public void tampilNode() {
-		System.out.printf("[%-25s|%-15d|%-6s]%n", data.getNama(), data.getNim(), data.getGender());
+		System.out.printf("[ %-25s | %-15d | %-6s ]%n", data.getNama(), data.getNim(), data.getGender());
 	}
 
 	public void updateShow() {
