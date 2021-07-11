@@ -25,11 +25,11 @@ public class UasDoubleApp {
       public static void main(String[] args) {
           Scanner scanner = new Scanner(System.in);
           UasLink link = new UasLink();
-          System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-          System.out.println(">               Welcome to app v1.1              <");
-          System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+          System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+          System.out.println(">               Welcome to app v1.1                    <");
+          System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
           do {
-              System.out.println(">------------------------------------------------<");
+              System.out.println(">------------------------------------------------------<");
               System.out.println("Pilih Menu :");
               System.out.println("1. Masukan data");
               System.out.println("2. Menghapus data");
@@ -39,12 +39,12 @@ public class UasDoubleApp {
               System.out.println("6. Hapus semua data");
               System.out.println("7. App Ingfo");
               System.out.println("8. Keluar");
-              System.out.println(">------------------------------------------------<");
+              System.out.println(">------------------------------------------------------<");
               
               try {
                   System.out.print("Anda Pilih : ");
                   double pilih = scanner.nextDouble();
-                  System.out.println("--------------------------------------------------");
+                  System.out.println("--------------------------------------------------------");
   
                   if( pilih == 1){
                         System.out.print("Nama : ");

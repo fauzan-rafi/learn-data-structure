@@ -73,9 +73,9 @@ class UasLink {
 // ------------------------------------------------------------
 
 	public void tampilMaju() {
-		System.out.println("--------------------------------------------------");
+		System.out.println("--------------------------------------------------------");
 		System.out.printf("[ %-25s | %-15s | %-5s ]%n","Nama","Nim","Gender");
-		System.out.println("--------------------------------------------------");
+		System.out.println("--------------------------------------------------------");
 		if (this.first == null && this.last == null) {
 			System.out.println("Data kosong");
 		}else{
