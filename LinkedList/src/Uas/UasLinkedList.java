@@ -1,9 +1,6 @@
 package Uas;
 
 class Node {
-	// public String Nama;
-	// public int Nim;
-	// public String Gender;
 	public Data data;
 	public Node next; // pointer (link) untuk terhubung dengan Node berikutnya
 	public Node previous; // pointer (link) untuk terhubung dengan Node sebelumnya
