@@ -7,12 +7,6 @@ class Node {
 	public Data data;
 	public Node next; // pointer (link) untuk terhubung dengan Node berikutnya
 	public Node previous; // pointer (link) untuk terhubung dengan Node sebelumnya
-	// -------------------------------------------------------------
-	// public Node(String Nama, int Nim, String Gender) {
-	// this.Nama = Nama;
-	// this.Nim = Nim;
-	// this.Gender = Gender;
-	// }
 
 	public Node(String Nama, long Nim, String Gender) {
 		Data temp = new Data(Nim, Nama, Gender);
