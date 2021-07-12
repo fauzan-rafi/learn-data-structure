@@ -49,6 +49,7 @@ public class UasDoubleApp {
                   if( pilih == 1){
                         System.out.print("Nama : ");
                         String nama = scanner.next();
+                        nama += scanner.nextLine();
                         System.out.print("NIM : ");
                         long nim = scanner.nextLong();
                         System.out.print("Jenis Kelamin(L/W) : ");
@@ -59,8 +60,6 @@ public class UasDoubleApp {
                               System.out.println("Data gagal ditambahkan, silahkan periksa Nim anda kembali !!! ");
                         }
                         System.out.println();
-                        // link.sortData();
-                        // link.sortGroup();
                         link.tampilMaju();
                         
                   }

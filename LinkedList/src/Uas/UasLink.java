@@ -110,6 +110,8 @@ class UasLink {
 // -------------------------------------------------------------
 
 	public void sortGroup() {
+		this.l = 0;
+		this.w = 0;
 		Node index = first;
 		while (index != null) {
 			if (index.data.getGender().equals("L")) {
@@ -164,8 +166,9 @@ class UasLink {
 					System.out.print("Masukkan Nama (String): ");
 					try {
 						String newNama = scanner.next();
+						newNama += scanner.nextLine();
 						trial = this.editData(newNama, oldNim, oldGender ,index);
-						
+
 					}
 					catch(InputMismatchException e) {
 						System.out.println("Masukan harus berupa String!");
